@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapid Reach</title>
+    <link rel="stylesheet" href="/RapidReach_Web/css/home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar {
+    background-color: #1c1c1c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff4444;
+}
+
+.navbar .nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.navbar .nav-links li {
+    margin-left: 1.5rem;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: #ff4444;
+}
+
+.navbar .emergency-icon {
+    font-size: 1.5rem;
+    color: #ff4444;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.navbar .emergency-icon:hover {
+    transform: scale(1.1);
+}
+
+.logout-btn {
+    background-color: #d9534f;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 2rem;
+}
+
+.logout-btn:hover {
+    background-color: #c9302c;
+}
+
+.hotline-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four equal-sized columns */
+    gap: 1rem; /* Adjust spacing between boxes */
+    justify-items: center;
+    padding: 1rem;
+    max-width: 1000px; /* Adjusted width for laptop display */
+}
+
+.hotline-card {
+    background: #1c1c1c;
+    border: 2px solid #ff4444;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 20px rgba(255, 68, 68, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hotline-card.highlight {
+    margin: 0 auto;  
+    background-color: #1c1c1c;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(255, 68, 68, 0.6);
+    transform: scale(1.05); 
+}
+
+.hotline-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ff4444;
+    margin-bottom: 0.8rem;
+}
+
+.hotline-description {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.hotline-number {
+    font-size: 1.2rem;
+    color: #ff4444;
+}
+
+.procedures-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.procedures-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff4444;
+    margin-bottom: 1.5rem;
+}
+
+.hotline-cards, .guides-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: #1c1c1c;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(255, 68, 68, 0.5);
+}
+
+.card img.card-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+    border: #ff4444;
+}
+
+.card-description {
+    font-size: 1rem;
+    color: #bdbdbd;
+    margin-bottom: 1rem;
+}
+
+.card-number, .guide-button {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #e71b1b;
+    text-decoration: none;
+    cursor: pointer;
+    justify-content: center;
+    justify-content: flex;
+}
+
+.related-links-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ff4444;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.related-links ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.related-links li {
+    margin-bottom: 0.5rem;
+}
+
+.related-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.related-links a:hover {
+    color: #ff4444;
+}
+
+.guides-section .card {
+    border-radius: 25px; 
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.guides-section .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(255, 68, 68, 0.5);
+}
+
+.footer {
+    background-color: #1c1c1c;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-content p {
+    color: #bdbdbd;
+}
+
+.footer-content a {
+    color: #ff4444;
+    text-decoration: none;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.social-icons li {
+    margin: 0 0.5rem;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ff4444;
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+    }
+
+    .search-bar {
+        width: 80%;
+    }
+
+    .guides-section .card {
+        padding: 1rem;
+        border-radius: 20px;
+    }
+}
+
+        .card {
+            position: relative;
+            border: 1px solid #ff4444;
+            padding: 10px;
+            margin: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-number {
+            font-size: 1.5em;
+            color: #ff4444;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            justify-content: center;
+        }
+
+        
+        .card-number:hover {
+            color: #ff4444;
+        }
+
+        .card-details {
+            font-size: 0.9em;
+            background-color: #d9534f;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none; 
+        }
+
+       
+        .hotline-cards {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card-wrapper {
+            position: relative;
+            flex: 1 0 21%; 
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<!-- Navbar -->
+<div class="navbar">
+    <div class="logo">Rapid Reach</div>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="hotlines.html">Hotlines</a></li>
+        <li><a href="procedures.html">Procedures</a></li>
+    </ul>
+    <a href="login.html" class="logout-btn">Logout</a> <!-- Logout button -->
+</div>
+
+<!-- Featured Hotlines Section -->
+<div class="procedures-section">
+    <h2 class="procedures-title">Featured Hotlines</h2>
+    <div class="hotline-cards">
+        <!-- Card 1: Fire Department -->
+        <div class="card-wrapper">
+            <div class="card">
+                <img src="../images/pnpimg.jpg" alt="Fire Department" class="card-image">
+                <div class="card-title">LAGUNA POLICE PO</div>
+                <div class="card-number" onclick="toggleDescription(0)">501-5971</div>
+                <div class="card-description"></div>
+                <div class="card-details" id="details-0">
+                    <p><strong>Response Time:</strong> Immediate response for emergencies such as crimes in progress.</p>
+                    <p><strong>What to Report:</strong> Criminal activities, suspicious behavior, and emergencies like theft or assault.</p>
+                    <p><strong>Additional Services:</strong> Police also respond to accidents, missing persons, and public disturbances.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Police Department -->
+        <div class="card-wrapper">
+            <div class="card">
+                <img src="../images/bfpimg.jpg" alt="Police Department" class="card-image"> <!-- Updated path -->
+                <div class="card-title">BFP STA CRUZ</div>
+                <div class="card-number" onclick="toggleDescription(1)">808-1382</div>
+                <div class="card-description"></div>
+                <div class="card-details" id="details-1">
+                    <p><strong>Response Time:</strong> Typically 5-10 minutes depending on location.</p>
+                    <p><strong>What to Report:</strong> Details of the fire (location, size, and cause if known), and if there are any trapped individuals.</p>
+                    <p><strong>Additional Services:</strong> Firefighters also assist with rescue operations and hazardous material incidents.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Medical Emergency -->
+        <div class="card-wrapper">
+            <div class="card">
+                <img src="../images/lrimg.jpg" alt="Medical Emergency" class="card-image"> <!-- Updated path -->
+                <div class="card-title">STA CRUZ RESCUE</div>
+                <div class="card-number" onclick="toggleDescription(2)">523-1944</div>
+                <div class="card-description"></div>
+                <div class="card-details" id="details-2">
+                    <p><strong>Response Time:</strong> Immediate response with paramedics on-site.</p>
+                    <p><strong>What to Report:</strong> Type of emergency (e.g., heart attack, injury), patient's condition, and location.</p>
+                    <p><strong>Additional Services:</strong> Emergency medical teams will provide immediate care and transportation to the hospital if needed.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4: Poison Control -->
+        <div class="card-wrapper">
+            <div class="card">
+                <img src="../images/rcimg.jpg" alt="Poison Control" class="card-image"> <!-- Updated path -->
+                <div class="card-title">RED CROSS</div>
+                <div class="card-number" onclick="toggleDescription(3)">501-1114</div>
+                <div class="card-description"></div>
+                <div class="card-details" id="details-3">
+                    <p><strong>Response Time:</strong> Immediate response, with teams mobilized quickly for disaster relief, blood donations, and emergency medical services. In cases of life-threatening situations, assistance is usually provided within minutes.</p>
+                    <p><strong>What to Report:</strong> Nature of the emergency (e.g., disaster, injury, or health crisis).</p>
+                    <p><strong>Additional Services:</strong> Disaster Response: Aid during floods, earthquakes, and other natural calamities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="procedures-section">
+    <h2 class="procedures-title">Basic Emergency Procedures Links</h2>
+    <div class="guides-section">
+        <!-- Guide 1: Fire Safety Procedure -->
+        <div class="card">
+            <div class="card-title">
+                <i class="fas fa-fire"></i> Fire Safety Procedure
+            </div>
+            <div class="card-description">
+                Learn how to act quickly and safely during a fire emergency. Understand the key steps to evacuate and minimize risks.
+            </div>
+            <div class="related-links">
+                <p class="related-links-title">Related Links:</p>
+                <ul>
+                    <li><a href="https://www.youtube.com/watch?v=UvyDdWMZm40" target="_blank">10 Fire Safety Tips</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=GVBamXXVD30" target="_blank">Using a Fire Extinguisher</a></li>
+                </ul>
+            </div>
+            <a href="https://www.youtube.com/watch?v=jFQ7FioW638" class="guide-button" target="_blank">Watch Video</a>
+        </div>
+        <!-- Guide 2: CPR Basics -->
+        <div class="card">
+            <div class="card-title">
+                <i class="fas fa-heartbeat"></i> CPR Basics
+            </div>
+            <div class="card-description">
+                Step-by-step instructions on performing CPR effectively. A lifesaving skill to use during emergencies.
+            </div>
+            <div class="related-links">
+                <p class="related-links-title">Related Links:</p>
+                <ul>
+                    <li><a href="https://youtube.com/watch?v=2PngCv7NjaI" target="_blank">CPR Techniques</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=zk8hO1JxSac" target="_blank">When to Use CPR</a></li>
+                </ul>
+            </div>
+            <a href="https://www.youtube.com/watch?v=-NodDRTsV88" class="guide-button" target="_blank">Watch Video</a>
+        </div>
+        <!-- Guide 3: Earthquake Preparedness -->
+        <div class="card">
+            <div class="card-title">
+                <i class="fas fa-globe-americas"></i> Earthquake Preparedness
+            </div>
+            <div class="card-description">
+                Understand how to stay safe during an earthquake. Learn about survival strategies and emergency kits.
+            </div>
+            <div class="related-links">
+                <p class="related-links-title">Related Links:</p>
+                <ul>
+                    <li><a href="https://www.youtube.com/watch?v=XAOV53VeuBw" target="_blank">Earthquake Safety Tips</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=vYMdk0mTjz8" target="_blank">Essential Emergency Kits</a></li>
+                </ul>
+            </div>
+            <a href="https://www.youtube.com/watch?v=gFphEEAxQLA" class="guide-button" target="_blank">Watch Video</a>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<div class="footer">
+    <div class="footer-content">
+        <div class="contact-info">
+            <p>Contact us at <a href="mailto:support@example.com" style="color: #d9534f;">support@example.com</a></p>
+        </div>
+        <ul class="social-icons">
+            <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+        <div class="copyright">
+            <p>&copy; 2024 Rapid Reach. All Rights Reserved.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleDescription(index) {
+        // Hide all the card details
+        const allDetails = document.querySelectorAll('.card-details');
+        allDetails.forEach((detail, i) => {
+            if (i !== index) {
+                detail.style.display = "none"; // Hide other details
+            }
+        });
+
+        // Toggle the clicked card's details
+        const details = document.getElementById(`details-${index}`);
+        details.style.display = (details.style.display === "block") ? "none" : "block";
+    }
+    function logout() {
+        // Perform logout action here, e.g., an AJAX call to the server to log out
+        // After logging out, redirect to home.html
+        window.location.href = 'login.html';
+    }
+</script>
+
+</body>
+</html>
